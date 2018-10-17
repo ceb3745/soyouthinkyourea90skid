@@ -21,12 +21,9 @@ class Enemy {
     // Transition current frame to next frame by mapping input to inType number
     // and then doing a table lookup in transTab with curFrm & inType
     transition() {
-        var inputType; // indicates animation loop to play through
-        
-        inputType = 0;
 
         // Table lookup - No "if" statements needed!
-        this.curF = this.transTab[this.curF][inputType]; // Transition to next state
+        this.curF = this.transTab[this.curF + 1]; // Transition to next state
     }
 
     display() {

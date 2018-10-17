@@ -274,7 +274,7 @@ function draw() {
     //COLLISION
 
 
-    if (uni.col * tileSize == x1 && uni.row * tileSize == y1) {
+    if ((uni.col * tileSize)-50 < x1 && (uni.col * tileSize)+50  > x1 && (uni.row * tileSize)-50 < y1 && (uni.row * tileSize)+50  > y1 ) {
         healthbar.loseLife();
         enemyhorde.move(moveUfoX, moveUfoY);
         x1 = moveUfoX;
@@ -303,14 +303,7 @@ function draw() {
     if (enter == false) {
         image(screen, width / 2, height / 2);
     } else if (enter == true) {
-        //makes alien
-        if (frameCount % enAnimRate == 0) {
-            for (let a = 0; a < aliens.length; a++) {
-                aliens[a].transition(); // Advance the animation to the next frame
-            }
-
-        }
-
+        
         for (let a = 0; a < aliens.length; a++) {
             aliens[a].display(); // Display the frame
         }
@@ -330,7 +323,6 @@ function draw() {
         }
 
         enemyhorde.move(x1, y1);
-
     }
 
     if (lives == 0) {
@@ -341,6 +333,7 @@ function draw() {
         textSize(50);
         textAlign(CENTER);
         text("refresh to try again", width / 2, height / 1.5);
+        return;
     }
 
 }
@@ -359,25 +352,10 @@ function hardReset(level) {
     }
 
     uni.display(); // Display the frame
-
-
-    if (frameCount % tileAnimRate == 0) {
-        for (let s = 0; s < objs.length; s++) {
-            objs[s].transition(); // Advance the animation to the next frame
-        }
-
-    }
+    
 
     for (let s = 0; s < objs.length; s++) {
         objs[s].display(); // Display the frame
-    }
-
-
-    if (frameCount % enAnimRate == 0) {
-        for (let a = 0; a < aliens.length; a++) {
-            aliens[a].transition(); // Advance the animation to the next frame
-        }
-
     }
 
     for (let a = 0; a < aliens.length; a++) {

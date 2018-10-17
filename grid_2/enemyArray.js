@@ -27,4 +27,10 @@ class EnemyArray {
             this.arrayEnemies[i].display();
         }
     }
+    
+    transitionAll(){
+        for (let i = 0; i < this.lengthEnemy(); i++) {
+            this.arrayEnemies[i].transition();
+        }
+    }
 }

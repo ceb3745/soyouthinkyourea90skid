@@ -1,0 +1,7 @@
+body{
+    display:flex;
+    justify-content: center;
+    background-image: url(../media/background.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

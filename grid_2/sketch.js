@@ -58,6 +58,7 @@ let myfont;
 let randX = 0;
 let randY = 0;
 let board = [];
+let gameOver = true;
 
 //variables for the cat animation array
 function preload() {
@@ -206,6 +207,17 @@ function setup() {
 }
 
 function draw() {
+    if (lives <= 0) {
+        background("#5B328B");
+        textSize(100);
+        textAlign(CENTER);
+        text("GAME OVER", width / 2, height / 2);
+        textSize(50);
+        textAlign(CENTER);
+        text("refresh to try again", width / 2, height / 1.5);
+        return;
+    }
+    
     background(130);
     //display healthbar
 
@@ -323,17 +335,6 @@ function draw() {
         }
 
         enemyhorde.move(x1, y1);
-    }
-
-    if (lives == 0) {
-        background("#5B328B");
-        textSize(100);
-        textAlign(CENTER);
-        text("GAME OVER", width / 2, height / 2);
-        textSize(50);
-        textAlign(CENTER);
-        text("refresh to try again", width / 2, height / 1.5);
-        this.exit();
     }
 
 }

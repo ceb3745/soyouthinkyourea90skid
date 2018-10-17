@@ -333,7 +333,7 @@ function draw() {
         textSize(50);
         textAlign(CENTER);
         text("refresh to try again", width / 2, height / 1.5);
-        return;
+        this.exit();
     }
 
 }

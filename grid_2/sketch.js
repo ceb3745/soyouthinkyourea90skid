@@ -60,7 +60,7 @@ let randY = 0;
 let board = [];
 let gameOver = true;
 
-//variables for the cat animation array
+//preload all images needed in the program
 function preload() {
     heartimg = loadImage("../images/heart.png"); //heart/lives artwork goes here
     myfont = loadFont('../font/Thefont.ttf');
@@ -160,9 +160,6 @@ function setup() {
     enemyhorde.init(enFrm, x1, y1, enAnim);
 
 
-
-
-
     //shows tile #
     console.log(tiles);
 
@@ -214,7 +211,8 @@ function draw() {
         text("GAME OVER", width / 2, height / 2);
         textSize(50);
         textAlign(CENTER);
-        text("refresh to try again", width / 2, height / 1.5);
+        text("Press refresh to play again!", width / 2, height / 1.5);
+        exit();
         return;
     }
     
@@ -225,12 +223,6 @@ function draw() {
 
     // enemies move i dont know where else to put this so it works, relies on being called constantly
 
-
-
-
-
-    //    //sets cursor to a pawprint image
-    //    cursor("../images/curs1.png");
 
     //updates tile images in real time
     for (let r = 0; r < rows; r++) {
@@ -298,6 +290,7 @@ function draw() {
     healthbar.display();
     enemyhorde.display();
 
+
     textFont(myfont);
     text("SCORE "+score, 20, 120);
 
@@ -320,14 +313,14 @@ function draw() {
             aliens[a].display(); // Display the frame
         }
 
-        if (uni.col * tileSize < x1) { // Mouse is to the left of the Bot
+        if (uni.col * tileSize < x1) { // unicorn is to the left of the Bot
             x1 = x1 - speed;
         } // Move speed pixels left
         else {
             x1 = x1 + speed; // Move speed pixels right
         }
 
-        if (uni.row * tileSize < y1) { // Mouse is above the Bot
+        if (uni.row * tileSize < y1) { // unicorn is above the Bot
             y1 -= speed;
         } // Move speed pixels up (Note -= operator)
         else {
@@ -338,7 +331,6 @@ function draw() {
     }
 
 }
-
 
 function hardReset(level) {
     for (let r = 0; r < rows; r++) {
